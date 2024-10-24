@@ -4,7 +4,7 @@ const input = document.getElementById("task-input");
 const ongoingTasksEl = document.getElementById("ongoing");
 const completedTasksEl = document.getElementById("completed");
 const formTask = document.getElementById("formTask");
-const todos = JSON.parse(localStorage.getItem('task'))
+
 
 input.addEventListener("animationend", () => input.classList.remove("alert"));
 
@@ -18,7 +18,10 @@ const aTask = {
 let ongoingTasks = [];
 let completedTasks = [];
 
+loadTasks();
+
 displayOngoingTasks();
+displayCompletedTasks();
 
 //Unikt ID for hver to-do (anvender en metode)
 function createID() {
@@ -49,15 +52,15 @@ function saveTasks(){
   localStorage.setItem("completedTasks", JSON.stringify (completedTasks));
 }
 
-function getTasks(){
-  const getOngoingTasks = localStorage.getItem("ongoingTasks")
-  const getCompletedTasks = localStorage.getItem("completedTasks")
+function loadTasks(){
+  const loadedOngoingTasks = localStorage.getItem("ongoingTasks")
+  const loadedCompletedTasks = localStorage.getItem("completedTasks")
 
-  if(getOngoingTasks){
-    ongoingTasks = JSON.parse(getOngoingTasks);
+  if(loadedOngoingTasks){
+    ongoingTasks = JSON.parse(loadedOngoingTasks);
   }
-  if(getCompletedTasks){
-    completedTasks = JSON.parse(getCompletedTasks);
+  if(loadedCompletedTasks){
+    completedTasks = JSON.parse(loadedCompletedTasks);
   }
 }
 
@@ -70,8 +73,8 @@ function addTask(title, description) {
     id: createID(),
     completed: false,
   };
-  saveTasks();
   ongoingTasks.push(newTask);
+  saveTasks();
   //console.log(ongoingTasks);
 }
 // Indhold til Ongoing Tasks
