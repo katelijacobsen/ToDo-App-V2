@@ -4,6 +4,7 @@ const input = document.getElementById("task-input");
 const ongoingTasksEl = document.getElementById("ongoing");
 const completedTasksEl = document.getElementById("completed");
 const formTask = document.getElementById("formTask");
+const todos = JSON.parse(localStorage.getItem('task'))
 
 input.addEventListener("animationend", () => input.classList.remove("alert"));
 
