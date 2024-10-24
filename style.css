@@ -306,10 +306,10 @@ li button:active {
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: clamp(2.75rem, 2.75rem + 0vw, 2.75rem);
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: clamp(2.063rem, 2.3284rem + -0.3425vw, 2.2rem);
   }
 }
