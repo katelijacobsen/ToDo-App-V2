@@ -48,8 +48,8 @@ formTask.addEventListener("submit", (e) => {
 
 //gem opgave med LocalStorage :3
 function saveTasks(){
-  localStorage.setItem("ongoingTasks", JSON.stringify (ongoingTasks));
-  localStorage.setItem("completedTasks", JSON.stringify (completedTasks));
+  localStorage.setItem("ongoingTasks", JSON.stringify(ongoingTasks));
+  localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
 }
 
 function loadTasks(){
