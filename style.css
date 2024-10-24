@@ -1,0 +1,314 @@
+/*********CSS RULES************/
+html {
+  --background-color: #031838;
+  --button-color: linear-gradient(135deg, #c70808, #ff6572, #c70808);
+  --font-family: "Helvetica Neue", Arial, sans-serif;
+  --text-color: #f0f2f5;
+  --border-color: #ccc;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --gradient-color: radial-gradient(
+        circle at 100% 100%,
+        #00072d 0,
+        #00072d 1px,
+        transparent 1px
+      )
+      0% 0%/3px 3px no-repeat,
+    radial-gradient(circle at 0 100%, #00072d 0, #00072d 1px, transparent 1px)
+      100% 0%/3px 3px no-repeat,
+    radial-gradient(circle at 100% 0, #00072d 0, #00072d 1px, transparent 1px)
+      0% 100%/3px 3px no-repeat,
+    radial-gradient(circle at 0 0, #00072d 0, #00072d 1px, transparent 1px) 100%
+      100%/3px 3px no-repeat,
+    linear-gradient(#00072d, #00072d) 50% 50% / calc(100% - 4px)
+      calc(100% - 6px) no-repeat,
+    linear-gradient(#00072d, #00072d) 50% 50% / calc(100% - 6px)
+      calc(100% - 4px) no-repeat,
+    linear-gradient(
+      135deg,
+      #54478c 0%,
+      #2c699a 10%,
+      #048ba8 20%,
+      #0db39e 30%,
+      #16db93 40%,
+      #83e377 50%,
+      #b9e769 60%,
+      #efea5a 70%,
+      #f1c453 80%,
+      #f29e4c 90%
+    );
+}
+/******************************/
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  transform: scale(0);
+  opacity: 0;
+  transition: 200ms ease-in;
+  animation: zoomIn 0.8s ease forwards;
+}
+
+.task-container {
+  background: var(--gradient-color);
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 30px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 600px;
+  transform: scale(0);
+  opacity: 0;
+  transition: 200ms ease-in;
+  animation: zoomIn 0.8s ease forwards;
+}
+
+#formTask {
+  background: var(--gradient-color);
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 36px;
+  width: 400px;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+}
+
+h1,
+h2,
+h3,
+p {
+  color: var(--text-color);
+  text-align: start;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 2.75rem + 0vw, 2.75rem);
+}
+h1::before {
+  content: "";
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  background-image: url("./assets/to-do-title-icon.svg");
+  background-repeat: no-repeat;
+  margin: 0 2% 0 0;
+}
+
+h2 {
+  font-size: clamp(2.063rem, 2.3284rem + -0.3425vw, 2.2rem);
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+h3,
+p {
+  font-size: clamp(1.407rem, 1.781rem + -0.4826vw, 1.6rem);
+  margin: 0;
+  padding: 0;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 4px 0px;
+  border-bottom: 2px solid var(--text-color);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: var(--background-color);
+  font-size: 1rem;
+  outline: none;
+  color: var(--text-color);
+  transition: 200ms ease-in;
+}
+
+input[type="submit"] {
+  background-color: #00000000;
+  background: url(./assets/add-task-icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  width: 3em;
+  height: 3em;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transform: scale(0.9);
+}
+
+input[type="text"]::placeholder {
+  color: #ffffff73;
+}
+
+input[type="text"]:focus {
+  transition: 200ms ease-in;
+  border-bottom: 5px solid var(--text-color);
+}
+input[type="submit"]:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1);
+}
+
+input[type="submit"]:active {
+  transition: transform 0.1s ease;
+  transform: scale(0.9);
+}
+
+.task {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: transparent;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/*********LIST STYLE***********/
+/******************************/
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: var(--background-color);
+  border: 1px solid var(--text-color);
+  border-radius: 3px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+/*********STYLE BUTTON*********/
+/******************************/
+
+li button {
+  background: var(--button-color);
+  background-size: 200% 200%;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  transform: 0.2s scale(1);
+  color: var(--text-color);
+  font-size: clamp(1.8755rem, 2.1167rem + -0.3113vw, 2rem);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  background-color: transparent;
+}
+li button:hover {
+  animation: moveGradient 2s linear infinite;
+  transform: scale(1.1);
+  transition: 0.3s ease;
+  -webkit-box-shadow: 0px 0px 29px -1px #f94e4e;
+  -moz-box-shadow: 0px 0px 29px -1px #f94e4e;
+  box-shadow: 0px 0px 29px -1px #f94e4e;
+}
+
+li button:active {
+  transition: transform 0.1s ease;
+  transform: scale(0.98);
+}
+
+/*********ANIMATIONS***********/
+/******************************/
+
+.todo-item {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.todo-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.todo-item.remove {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.alert {
+  border-bottom: 2px solid var(--text-color);
+  animation: border-alert 0.8s linear forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes border-alert {
+  from {
+    border-bottom: 2px solid #ff7070;
+  }
+  to {
+    border-bottom: 2px solid var(--text-color);
+  }
+}
+/*********RESPONSIVE***********/
+/******************************/
+@media (max-width: 600px) {
+  .app-container {
+    padding: 20px;
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
