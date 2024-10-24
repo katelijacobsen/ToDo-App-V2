@@ -85,7 +85,8 @@ body {
   flex-direction: column;
   gap: 4px;
   margin-top: 36px;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .submit {
