@@ -1,7 +1,7 @@
 /*********CSS RULES************/
 html {
   --background-color: #031838;
-  --button-color: linear-gradient(135deg, #c70808, #ff6572, #c70808);
+  --button-color: linear-gradient(135deg, #c70808, #ff929b, #c70808);
   --font-family: "Helvetica Neue", Arial, sans-serif;
   --text-color: #f0f2f5;
   --border-color: #ccc;
@@ -106,13 +106,13 @@ h1 {
   font-size: clamp(2.75rem, 2.75rem + 0vw, 2.75rem);
 }
 h1::before {
-  content: "";
+  content: "📑";
   display: inline-block;
-  width: 34px;
-  height: 34px;
-  background-image: url("./assets/to-do-title-icon.svg");
-  background-repeat: no-repeat;
-  margin: 0 2% 0 0;
+  /* width: 34px;
+  height: 34px; */
+  /* background-image: url("./assets/to-do-title-icon.svg");
+  background-repeat: no-repeat; */
+  margin: 0 .1em 0 0;
 }
 
 h2 {

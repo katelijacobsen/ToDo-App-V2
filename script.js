@@ -8,11 +8,11 @@ const formTask = document.getElementById("formTask");
 input.addEventListener("animationend", () => input.classList.remove("alert"));
 
 //arrays (empty) for test
-// const aTask = {
-//   title: "Title",
-//   id: createID(),
-//   completed: false,
-// };
+const aTask = {
+  title: "Title",
+  id: createID(),
+  completed: false,
+};
 
 let ongoingTasks = [];
 let completedTasks = [];
