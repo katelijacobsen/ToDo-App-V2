@@ -24,6 +24,7 @@ function createID() {
   return crypto.randomUUID();
 } 
 
+
 formTask.addEventListener("submit", (e) => {
   e.preventDefault();
   
@@ -103,7 +104,6 @@ function completedTask(id) {
   const taskToToggle =
     ongoingTasks.find((task) => task.id === id) ||
     completedTasks.find((task) => task.id === id);
-
   if (taskToToggle) {
     if (taskToToggle.completed) {
       taskToToggle.completed = false;
@@ -143,11 +143,9 @@ function displayCompletedTasks() {
     completedTasksEl.appendChild(taskEl);
     setTimeout(() => {
       taskEl.classList.add("show");
-    }, 10);
+    }, 30);
   });
 }
-
-
 
 //Fjern opgaven
 function removeTask(id) {
@@ -164,5 +162,5 @@ function removeTask(id) {
     saveTasks();
     displayOngoingTasks();
     displayCompletedTasks();
-  }, 500);
+  }, 300);
 }
